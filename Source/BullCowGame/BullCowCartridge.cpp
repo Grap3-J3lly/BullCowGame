@@ -10,23 +10,23 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     PrintLine(TEXT("Guess word of length 4"));
     PrintLine(TEXT("Request for player input before pressing enter"));
 
-    // Setting up Game
-    HiddenWord = TEXT("testWord");
-    // Set Lives
+    InitGame(); // Setting up Game
 
     // Prompt Player For Guess
 }
 
-void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
+void UBullCowCartridge::OnInput(const FString &Input) // When the player hits enter
 {
     ClearScreen();
-    
+
     // Checking PlayerGuess
 
-    if(Input == HiddenWord) {
+    if (Input == HiddenWord)
+    {
         PrintLine(TEXT("Yep"));
     }
-    else {
+    else
+    {
         PrintLine(TEXT("Nope"));
     }
 
@@ -44,4 +44,10 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     // Prompt to PlayAgain
     // Check User Input
     // PlayAgain or Quit
+}
+
+void UBullCowCartridge::InitGame()
+{
+    HiddenWord = TEXT("testWord");
+    Lives = 4;
 }
